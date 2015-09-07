@@ -18,7 +18,7 @@ namespace FractalAlgorithmTest
 			CamPos = new Vector3(0, 0.2f, 1.5f);
 
 			//Use mountain noise configuration
-			Noise = NoiseModules.GetMountainModule(771);
+			Noise = NoiseModules.GetMountainModule(6798);
 		}
 
 		INoiseModule Noise;

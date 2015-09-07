@@ -33,14 +33,8 @@ namespace Shaders
 		public static int __Vertex;
 		private static string VertexSource = "#version 330\n\nin vec3 Vertex;\nin vec3 Normal;\n\nuniform mat4 MVP;\n\nsmooth out float displacement;\nsmooth out vec3 normal;\n\nvoid main()\n{\n	gl_Position = MVP * vec4(Vertex, 1.0);\n	displacement = Vertex.y;\n	normal = Normal;\n}";
 		private static string FragmentSource = "#version 330\n\nuniform vec3 LightDir;\n\nin float displacement;\nin vec3 normal;\n\nout vec3 Colour;\n\nvoid main()\n{\n	Colour = vec3(clamp( dot( normal, -LightDir ), 0.0,1.0 ));\n}";
-		private static void LoadShaders()
-		{
-			VertexSource = global::System.IO.File.ReadAllText(@"D:\Projects\Projects\C#\FractalAlgorithmSandbox\Shader.vert");
-			FragmentSource = global::System.IO.File.ReadAllText(@"D:\Projects\Projects\C#\FractalAlgorithmSandbox\Shader.frag");
-		}
 		public static void CompileShader()
 		{
-			LoadShaders();
 			ProgramID = GL.CreateProgram();
 			int Vertex = GL.CreateShader(global::OpenTK.Graphics.OpenGL.ShaderType.VertexShader);
 			GL.ShaderSource(Vertex, VertexSource);
