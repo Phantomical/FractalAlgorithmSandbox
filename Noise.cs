@@ -3,7 +3,8 @@ using System;
 
 namespace FractalAlgorithmTest
 {
-	public class Interpolators
+	[Obsolete("This is just a storage class for various interpolators. They will probably be moved in the future.")]
+	private static class Interpolators
 	{
 		/// <summary>
 		/// Linear Interpolation
@@ -59,6 +60,30 @@ namespace FractalAlgorithmTest
 
 	namespace Noise
 	{
+		/// <summary>
+		/// Class for predefined noise module combinations.
+		/// </summary>
+		public static class NoiseFunctions
+		{
+			public static INoiseModule GetRidgedMultifractal()
+			{
+				return GetRidgedMultifractal(8, 0.75f, 2f, 1.9f);
+			}
+			public static INoiseModule GetRidgedMultifractal(int Octaves, float Persistence, float Frequency, float Lacunarity)
+			{
+				return new Modifier.RidgedFractal(new PerlinNoise(), Octaves, Persistence, Frequency, Lacunarity);
+			}
+
+			public static INoiseModule GetBillowNoise()
+			{
+				return GetBillowNoise(8, 0.75f, 2f, 1.9f);
+			}
+			public static INoiseModule GetBillowNoise(int Octaves, float Persistence, float Frequency, float Lacunarity)
+			{
+				return new Modifier.BillowFractal(new PerlinNoise(), Octaves, Persistence, Frequency, Lacunarity);
+			}
+		}
+
 		public class WorleyNoise : INoiseModule
 		{
 			public enum DistanceFunc
@@ -350,29 +375,6 @@ namespace FractalAlgorithmTest
 				for (var i = 0; i < 256; i++) p[256 + i] = p[i] = permutation[i];
 			}
 		}
-		public class RidgedMultifractal : INoiseModule
-		{
-			public INoiseModule Source;
-
-			public RidgedMultifractal() :
-				this(8, 0.75f, 2.0f)
-			{
-
-			}
-			public RidgedMultifractal(int Octaves, float persistence, float frequency)
-			{
-				Source = new Modifier.Fractal(new PerlinNoise(), Octaves, persistence, frequency);
-			}
-			public RidgedMultifractal(INoiseModule SourceModule)
-			{
-				Source = SourceModule;
-			}
-
-			public float GetValue(float x, float y, float z)
-			{
-				return 1 - (float)Math.Abs(Source.GetValue(x, y, z));
-			}
-		}
 		public class Constant : INoiseModule
 		{
 			public float Value;
@@ -413,17 +415,19 @@ namespace FractalAlgorithmTest
 			public int Octaves = 1;
 			public float Persistence = 0.75f;
 			public float Frequency = 2.0f;
+			public float Lacunarity = 1.9f;
 
 			public RidgedFractal(INoiseModule SourceModule)
 			{
 				Source = SourceModule;
 			}
-			public RidgedFractal(INoiseModule Src, int octaves, float persistence, float frequency) :
+			public RidgedFractal(INoiseModule Src, int octaves, float persistence, float frequency, float lacunarity) :
 				this(Src)
 			{
 				Octaves = octaves;
 				Persistence = persistence;
 				Frequency = frequency;
+				Lacunarity = lacunarity;
 			}
 			
 			public float GetValue(float x, float y, float z)
@@ -438,7 +442,7 @@ namespace FractalAlgorithmTest
 					//Get the noise sample
 					total += ((1 - (float)Math.Abs(Source.GetValue(x * frequency, y * frequency, z * frequency))) * 2f - 1f) * amplitude;
 
-					frequency *= 2;
+					frequency *= Lacunarity;
 					maxAmplitude += amplitude;
 					amplitude *= Persistence;
 				}
@@ -453,17 +457,19 @@ namespace FractalAlgorithmTest
 			public int Octaves = 1;
 			public float Persistence = 0.75f;
 			public float Frequency = 2.0f;
+			public float Lacunarity = 1.9f;
 
 			public BillowFractal(INoiseModule SourceModule)
 			{
 				Source = SourceModule;
 			}
-			public BillowFractal(INoiseModule Src, int octaves, float persistence, float frequency) :
+			public BillowFractal(INoiseModule Src, int octaves, float persistence, float frequency, float lacunarity) :
 				this(Src)
 			{
 				Octaves = octaves;
 				Persistence = persistence;
 				Frequency = frequency;
+				Lacunarity = lacunarity;
 			}
 			
 			public float GetValue(float x, float y, float z)
@@ -478,7 +484,7 @@ namespace FractalAlgorithmTest
 					//Get the noise sample
 					total += (((float)Math.Abs(Source.GetValue(x * frequency, y * frequency, z * frequency))) * 2f - 1f) * amplitude;
 
-					frequency *= 2;
+					frequency *= Lacunarity;
 					maxAmplitude += amplitude;
 					amplitude *= Persistence;
 				}
@@ -493,17 +499,19 @@ namespace FractalAlgorithmTest
 			public int Octaves = 1;
 			public float Persistence = 0.75f;
 			public float Frequency = 2.0f;
+			public float Lacunarity = 2;
 
 			public Fractal(INoiseModule SourceModule)
 			{
 				Source = SourceModule;
 			}
-			public Fractal(INoiseModule Src, int octaves, float persistence, float frequency) :
+			public Fractal(INoiseModule Src, int octaves, float persistence, float frequency, float lacunarity) :
 				this(Src)
 			{
 				Octaves = octaves;
 				Persistence = persistence;
 				Frequency = frequency;
+				Lacunarity = lacunarity;
 			}
 			
 			public float GetValue(float x, float y, float z)
@@ -518,7 +526,7 @@ namespace FractalAlgorithmTest
 					//Get the noise sample
 					total += Source.GetValue(x * frequency, y * frequency, z * frequency) * amplitude;
 
-					frequency *= 2;
+					frequency *= Lacunarity;
 					maxAmplitude += amplitude;
 					amplitude *= Persistence;
 				}
