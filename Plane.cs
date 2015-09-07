@@ -14,7 +14,9 @@ namespace FractalAlgorithmTest
 		{
 			//The spacing between each of the vertices.
 			float Interp = Width / VertsPerSide;
+			//Half the width
 			float hWidth = Width * 0.5f;
+			//Number of indices
 			int NumIndices = (VertsPerSide - 1) * (VertsPerSide - 1) * 6;
 
 			Vertices = new Vector3[VertsPerSide * VertsPerSide];
@@ -22,6 +24,8 @@ namespace FractalAlgorithmTest
 			Indices = new int[NumIndices];
 
 			//Create and displace vertices
+			//Vertices are dispalced along the Y axis
+			//Doing this in 3d wold normally be more complicated but with a plane it is simple
 			for(int x = 0; x < VertsPerSide; x++)
 			{
 				for(int z = 0; z < VertsPerSide; z++)
@@ -49,6 +53,7 @@ namespace FractalAlgorithmTest
 				}
 			}
 
+			//Create normals using vector cross product
 			for (int i = 0; i < idx; i += 3)
 			{
 				Vector3 v0 = Vertices[Indices[i]];
@@ -62,6 +67,7 @@ namespace FractalAlgorithmTest
 				Normals[Indices[i + 2]] += Normal;
 			}
 
+			//Normalize all the normals
 			for(int i = 0; i < Normals.Length; i++)
 			{
 				Normals[i].Normalize();
