@@ -4,7 +4,7 @@ using System;
 namespace FractalAlgorithmTest
 {
 	[Obsolete("This is just a storage class for various interpolators. They will probably be moved in the future.")]
-	private static class Interpolators
+	internal class Interpolators
 	{
 		/// <summary>
 		/// Linear Interpolation
