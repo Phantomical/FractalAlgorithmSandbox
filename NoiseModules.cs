@@ -10,7 +10,7 @@ namespace FractalAlgorithmTest
 					new Modifier.RidgedFractal(new Noise.PerlinNoise(), 16, 0.52f, 2), 
 					new Modifier.Multiply(
 						new Noise.WorleyNoise(Seed, Noise.WorleyNoise.DistanceFunc.Manhattan, Noise.WorleyNoise.CombinerFunc.Function1),
-						new Noise.Constant(5))), 
+						new Noise.Constant(10))), 
 				new Noise.Constant(0.1f));
 		}
 
