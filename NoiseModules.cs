@@ -7,7 +7,7 @@ namespace FractalAlgorithmTest
 		{
 			return new Modifier.ScaleCoords(
 				new Modifier.Add(
-					new Modifier.RidgedFractal(new Noise.PerlinNoise(), 16, 0.52f, 2, 2),
+					new Modifier.RidgedFractal(new Noise.PerlinNoise(), 16, 0.52f, 2, 2f),
 					new Modifier.Multiply(
 						new Noise.WorleyNoise(Seed, Noise.WorleyNoise.DistanceFunc.Manhattan, Noise.WorleyNoise.CombinerFunc.Function1),
 						new Noise.Constant(5))),
