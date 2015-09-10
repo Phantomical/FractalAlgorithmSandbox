@@ -13,7 +13,7 @@ namespace FractalAlgorithmTest
 						new Noise.Constant(5))),
 				new Noise.Constant(0.1f));
 		}
-		public static INoiseModule RidgesNValleysModule
+		public static INoiseModule RidgesAndValleysModule
 		{
 			get
 			{
