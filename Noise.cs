@@ -693,5 +693,28 @@ namespace FractalAlgorithmTest
 				return Module1.GetValue(x * v1, y * v1, z * v1);
 			}
 		}
+		public class AddToCoords : INoiseModule
+		{
+			/// <summary>
+			/// This module is the module that accepts the scaled coordinates.
+			/// </summary>
+			public INoiseModule Module1;
+			/// <summary>
+			/// The output of this module is the amount the distance is scaled by.
+			/// </summary>
+			public INoiseModule Module2;
+
+			public AddToCoords(INoiseModule m1, INoiseModule m2)
+			{
+				Module1 = m1;
+				Module2 = m2;
+			}
+
+			public float GetValue(float x, float y, float z)
+			{
+				float v1 = Module2.GetValue(x, y, z);
+				return Module1.GetValue(x + v1, y + v1, z + v1);
+			}
+		}
 	}
 }
