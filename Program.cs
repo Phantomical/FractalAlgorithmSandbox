@@ -14,6 +14,18 @@ namespace FractalAlgorithmTest
 
 			if(args.Length >= 1)
 			{
+				if(args[0] == "help")
+				{
+					Console.WriteLine(
+@"Command line arguments
+	[NoiseType] [Seed]
+
+	NoiseType can be any of " + String.Join(",\n\t\t ", Enum.GetNames(typeof(NoiseType))) + @".
+	Seed can be any valid integer."
+						);
+
+					return;
+				}
 				try
 				{
 					//Convert the text value of the argument to an enum

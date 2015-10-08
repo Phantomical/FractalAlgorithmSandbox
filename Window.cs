@@ -3,29 +3,31 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using ShaderRuntime;
 using System;
+using System.Reflection;
+using System.Linq;
 
 namespace FractalAlgorithmTest
 {
 	class Window : GameWindow
 	{
-		private static INoiseModule GetNoiseType(NoiseType Type, int Seed)
+		private static INoiseModule GetNoiseType(NoiseType Type, int seed)
 		{
 			switch (Type)
 			{
-				case NoiseType.Mountain:
-					return NoiseModules.GetMountainModule(Seed);
-				case NoiseType.RidgesAndValleys:
-					return NoiseModules.RidgesAndValleysModule;
-				case NoiseType.Valley:
-					return NoiseModules.Valley;
-				case NoiseType.Plains:
-					return NoiseModules.PlainsModule;
-				default:
+				case NoiseType.Custom:
 					//Feel free to test new modules here
 
 					///If you merge them into the repository
 					///please add the algorithm to the <see cref="NoiseType"/> enum
 					return null;
+				default:
+					///Get type module by calling the corresponding method
+					///in <see cref="NoiseModules"> using reflection
+					string ModuleName = Enum.GetName(typeof(NoiseType), Type);
+
+					MethodInfo TargetMethod = typeof(NoiseModules).GetMethod("Get" + ModuleName + "Module", new Type[]{typeof(int)});
+
+					return (INoiseModule)TargetMethod.Invoke(null, new object[]{seed});
 			}
 		}
 
@@ -98,6 +100,7 @@ namespace FractalAlgorithmTest
 		Vector3 CamPos;
 		Quaternion CamRot;
 		bool IsLine;
+		bool XDown;
 
 		protected override void OnUpdateFrame(FrameEventArgs e)
 		{
@@ -154,16 +157,25 @@ namespace FractalAlgorithmTest
 				//Toggle between wireframe and normal rendering
 				if (Keyboard[OpenTK.Input.Key.X])
 				{
-					if (IsLine)
+					if (!XDown)
 					{
-						GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
-						IsLine = false;
+						if (IsLine)
+						{
+							GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+							IsLine = false;
+						}
+						else
+						{
+							GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
+							IsLine = true;
+						}
+
+						XDown = true;
 					}
-					else
-					{
-						GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
-						IsLine = true;
-					}
+				}
+				else
+				{
+					XDown = false;
 				}
 
 				//Recompile shader
