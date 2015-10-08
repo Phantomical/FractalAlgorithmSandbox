@@ -405,6 +405,13 @@ namespace FractalAlgorithmTest
 				return Func(x, y, z);
 			}
 		}
+		public class SinCoords : INoiseModule
+		{
+			public float GetValue(float x, float y, float z)
+			{
+				return (float)(Math.Sin(x));
+			}
+		}
 	}
 	namespace Modifier
 	{

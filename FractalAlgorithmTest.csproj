@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="INoiseModule.cs" />
     <Compile Include="NoiseModules.cs" />
+    <Compile Include="NoiseTypes.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="README.md" />
     <None Include="Shader.frag" />
     <None Include="Shader.vert" />
   </ItemGroup>

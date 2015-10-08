@@ -8,7 +8,28 @@ namespace FractalAlgorithmTest
 {
 	class Window : GameWindow
 	{
-		public Window() :
+		private static INoiseModule GetNoiseType(NoiseType Type, int Seed)
+		{
+			switch (Type)
+			{
+				case NoiseType.Mountain:
+					return NoiseModules.GetMountainModule(Seed);
+				case NoiseType.RidgesAndValleys:
+					return NoiseModules.RidgesAndValleysModule;
+				case NoiseType.Valley:
+					return NoiseModules.Valley;
+				case NoiseType.Plains:
+					return NoiseModules.PlainsModule;
+				default:
+					//Feel free to test new modules here
+
+					///If you merge them into the repository
+					///please add the algorithm to the <see cref="NoiseType"/> enum
+					return null;
+			}
+		}
+
+		public Window(NoiseType Type, int Seed) :
 			base(
 				1080, 720, GraphicsMode.Default, "Fractal Algorithm Sandbox",
 				GameWindowFlags.Default, DisplayDevice.Default,
@@ -17,8 +38,7 @@ namespace FractalAlgorithmTest
 			CamRot = Quaternion.Identity;
 			CamPos = new Vector3(0, 0.2f, 1.5f);
 
-			//Use mountain noise configuration
-			Noise = NoiseModules.RidgesAndValleysModule;
+			Noise = GetNoiseType(Type, Seed);
 		}
 
 		INoiseModule Noise;

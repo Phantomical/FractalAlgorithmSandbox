@@ -29,8 +29,14 @@ namespace FractalAlgorithmTest
 						new Noise.Constant(0.1f));
 			}
 		}
+		public static INoiseModule Valley
+		{
+			get
+			{
+				return new Modifier.Add(new Noise.SinCoords(), new Modifier.Multiply(new Modifier.RidgedFractal(new Noise.PerlinNoise(), 8, 0.5f, 2, 2), new Noise.Constant(0.1f)));
+			}
+		}
 
-		
 		public static INoiseModule PlainsModule
 		{
 			get
