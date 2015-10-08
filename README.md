@@ -1,9 +1,11 @@
 # FractalAlgorithmSandbox
-Test environment for prototyping fractal terrain algorithms.
+A test environment for prototyping fractal terrain algorithms.
+
 
 Controls are as follows: 
-- WASDQE to move the camera
-- IJKLUO to rotate the camera
-- X to switch between wireframe and normal rendering
-- R to recompile shaders
-- Escape to close the window
+
+- <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>Q</kbd>, <kbd>E</kbd> to move the camera
+- <kbd>I</kbd>, <kbd>J</kbd>, <kbd>K</kbd>, <kbd>L</kbd>, <kbd>U</kbd>, <kbd>O</kbd> to rotate the camera
+- <kbd>X</kbd> to switch between wireframe and normal rendering
+- <kbd>R</kbd> to recompile shaders
+- <kbd>Esc</kbd>, or Escape to close the window
