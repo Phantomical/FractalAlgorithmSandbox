@@ -1,6 +1,9 @@
 # FractalAlgorithmSandbox
 A test environment for prototyping fractal terrain algorithms.
 
+Calling the program with "help" as the command line argument will indicate all the possible modules.
+
+Running the library requires that your computer supports opengl 3.3+.
 
 Controls are as follows: 
 
