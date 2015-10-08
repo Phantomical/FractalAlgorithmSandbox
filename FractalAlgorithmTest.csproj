@@ -65,7 +65,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(ProjectDir)Build\ShaderCompiler.exe" /vert="$(ProjectDir)Shader.vert" /frag="$(ProjectDir)Shader.frag" /name=PlaneShader /out="$(ProjectDir)Shader.cs</PreBuildEvent>
+    <PreBuildEvent>"$(ProjectDir)Dependencies\ShaderCompiler.exe" /vert="$(ProjectDir)Shader.vert" /frag="$(ProjectDir)Shader.frag" /name=PlaneShader /out="$(ProjectDir)Shader.cs</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
