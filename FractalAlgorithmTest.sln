@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalAlgorithmTest", "FractalAlgorithmTest.csproj", "{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{7A205C80-F746-4437-88B7-CB4A8E37A272}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{7A205C80-F746-4437-88B7-CB4A8E37A272}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,13 +14,12 @@ Global
 		UnitTest|Any CPU = UnitTest|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Debug|Any CPU.ActiveCfg = UnitTest|Any CPU
+		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Debug|Any CPU.Build.0 = UnitTest|Any CPU
+		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Release|Any CPU.ActiveCfg = UnitTest|Any CPU
+		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.Release|Any CPU.Build.0 = UnitTest|Any CPU
 		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.UnitTest|Any CPU.ActiveCfg = UnitTest|Any CPU
 		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.UnitTest|Any CPU.Build.0 = UnitTest|Any CPU
-		{5138EB52-6D84-40BB-B62C-80C2FE4FDBFB}.UnitTest|Any CPU.Deploy.0 = UnitTest|Any CPU
 		{7A205C80-F746-4437-88B7-CB4A8E37A272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A205C80-F746-4437-88B7-CB4A8E37A272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A205C80-F746-4437-88B7-CB4A8E37A272}.Release|Any CPU.ActiveCfg = Release|Any CPU

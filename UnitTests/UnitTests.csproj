@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FractalAlgorithmSandbox\FractalAlgorithmTest.csproj">
+    <ProjectReference Include="..\FractalAlgorithmTest.csproj">
       <Project>{5138eb52-6d84-40bb-b62c-80c2fe4fdbfb}</Project>
       <Name>FractalAlgorithmTest</Name>
     </ProjectReference>
