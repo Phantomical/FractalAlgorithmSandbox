@@ -1,5 +1,7 @@
 # FractalAlgorithmSandbox
 
+<image src="https://ci.appveyor.com/api/projects/status/github/Phantomical/FractalAlgorithmSandbox?svg=true&branch=master">
+
 A test environment for prototyping fractal terrain algorithms.
 
 Calling the program with "help" as the command line argument will indicate all the possible modules.
