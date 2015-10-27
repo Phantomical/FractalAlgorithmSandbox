@@ -1,9 +1,11 @@
 # FractalAlgorithmSandbox
+<image src="https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true">
+
 A test environment for prototyping fractal terrain algorithms.
 
 Calling the program with "help" as the command line argument will indicate all the possible modules.
 
-Running the library requires that your computer supports opengl 3.3+.
+Running the library requires that your computer supports opengl 3.0 or greater.
 
 Controls are as follows: 
 
