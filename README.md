@@ -1,5 +1,6 @@
 # FractalAlgorithmSandbox
-<image src="https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true">
+
+<image src="https://ci.appveyor.com/api/projects/status/github/Phantomical/FractalAlgorithmSandbox?svg=true&branch=master">
 
 A test environment for prototyping fractal terrain algorithms.
 
