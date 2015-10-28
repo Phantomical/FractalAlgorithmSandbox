@@ -1,6 +1,6 @@
 
 
-version: 1.0.0.{build}
+version: 1.0.{build}
 
 os: Visual Studio 2014 CTP4
 
@@ -25,9 +25,8 @@ init:
    - 7z x cmake.zip > NUL:
    # Download LLVM
    - appveyor DownloadFile http://llvm.org/releases/3.6.1/llvm-3.6.1.src.tar.xz
-   - rename llvm-3.6.1.src.tar.xz llvm.tar.xz
-   - 7z x llvm.tar.xz > NUL:
-   - 7z x llvm.tar > NUL:
+   - 7z x llvm-3.6.1.src.tar.xz > NUL:
+   - 7z x llvm-3.6.1.src.tar > NUL:
    - rename "llvm-3.6.1.src" LLVM
    - python -m ensurepip
    # Download and install Mako
