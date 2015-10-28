@@ -36,7 +36,9 @@ init:
    - python -m pip install lxml
    # Download SCons
    - python -m pip install --egg SCons
-   - call "C:/MinGW/bin/mingw-get.exe install msys-flex msys-bison msys-wget"
+   # install winflexbison
+   - rem Install flex/bison
+   - cinst winflexbison -y
    - appveyor DownloadFile "ftp://ftp.freedesktop.org/pub/mesa/10.6.0/mesa-10.6.0.tar.xz"
    - 7z x mesa-10.6.0.tar.xz > NUL:
    - 7z x mesa-10.6.0.tar > NUL:
