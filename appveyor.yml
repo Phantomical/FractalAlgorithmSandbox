@@ -28,6 +28,7 @@ init:
    - rename llvm-3.6.1.src.tar.xz llvm.tar.xz
    - 7z x llvm.tar.xz > NUL:
    - 7z x llvm.tar > NUL:
+   - rename "llvm-3.6.1.src" LLVM
    - python -m ensurepip
    # Download and install Mako
    - rem Install Mako
@@ -43,7 +44,6 @@ init:
    - appveyor DownloadFile "ftp://ftp.freedesktop.org/pub/mesa/10.6.0/mesa-10.6.0.tar.xz"
    - 7z x mesa-10.6.0.tar.xz > NUL:
    - 7z x mesa-10.6.0.tar > NUL:
-   - mkdir LLVM
    - cd LLVM
    - mkdir buildDir
    - chdir "C:\projects\install\LLVM"
