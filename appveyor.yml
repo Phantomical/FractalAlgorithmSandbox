@@ -12,8 +12,6 @@ platform: Any CPU
 shallow_clone: true
 
 init:
-
-- cmd: >-
    - python --version
    - git clone -q --depth=5 --branch=master https://github.com/florianlink/MesaOnWindows.git C:\projects\installer
    - chdir "C:\projects\installer"
