@@ -17,7 +17,7 @@ environment:
 init:
    - python --version
    - rem Install pip
-   - git clone -q --depth=5 --branch=master https://github.com/florianlink/MesaOnWindows.git C:\projects\installer
+   - mkdir "C:/projects/installer"
    - chdir "C:/projects/installer"
    - mkdir build
    # Download CMake
