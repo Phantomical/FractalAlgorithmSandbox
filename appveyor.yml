@@ -34,9 +34,7 @@ init:
    - rem Install Mako
    - python -m pip install --egg Mako
    # Download LibXml2
-   - appveyor DownloadFile "http://xmlsoft.org/sources/win32/python/libxml2-python-2.7.7.win32-py2.7.exe"
-   - rename libxml2-python-2.7.7.win32-py2.7.exe xml2.exe
-   - call xml2.exe
+   - pip install lxml
    # Download SCons
    - appveyor DownloadFile "http://cznic.dl.sourceforge.net/project/scons/scons/2.3.4/scons-2.3.4.zip"
    - rename scons-2.3.4.zip scons.zip
