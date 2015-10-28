@@ -35,10 +35,7 @@ init:
    # Download LibXml2
    - python -m pip install lxml
    # Download SCons
-   - appveyor DownloadFile "http://downloads.sourceforge.net/project/scons/scons/2.4.0/scons-2.4.0.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fscons%2Ffiles%2Fscons%2F2.4.0%2F&ts=1446063555&use_mirror=tcpdiag"
-   - rename scons-2.4.0.zip scons.zip
-   - 7z x scons.zip > NUL:
-   - python scons/setup.py install
+   - pip install --egg SCons
    - appveyor DownloadFile "http://heanet.dl.sourceforge.net/project/mingw/Installer/mingw-get-setup.exe"
    - rename mingw-get-setup.exe mingw.exe
    - mingw.exe
