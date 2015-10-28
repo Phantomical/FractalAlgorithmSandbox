@@ -16,8 +16,8 @@ environment:
 init:
    - python --version
    - rem Install pip
-   - mkdir "C:/projects/installer"
-   - chdir "C:/projects/installer"
+   - mkdir "C:/projects/install"
+   - chdir "C:/projects/install"
    - mkdir build
    # Download CMake
    - appveyor DownloadFile http://www.cmake.org/files/v3.2/cmake-3.2.3-win32-x86.zip
@@ -44,7 +44,9 @@ init:
    - 7z x mesa-10.6.0.tar.xz > NUL:
    - 7z x mesa-10.6.0.tar > NUL:
    - mkdir LLVM
-   - mkdir LLVM/buildDir
+   - cd LLVM
+   - mkdir buildDir
+   - chdir "C:\projects\install"
    - cmake/cmake.exe .. -G "Visual Studio 12 2013" "-DLLVM_USE_CRT_RELEASE:STRING=MT" "-DCMAKE_INSTALL_PREFIX:PATH=C:/projects/install/LLVM"
    - devenv.exe "LLVM.sln" "/Build" "Release" "/Project" "INSTALL"
    - python scons.py "build=release" "machine=x86" "MSVC_VERSION=12.0" "llvm=yes" "libgl-gdi"
