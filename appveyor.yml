@@ -1,7 +1,7 @@
 
 init:
   - git clone -q --depth=5 --branch=master http://anongit.freedesktop.org/git/mesa/mesa.git C:\projects\mesa
-
+  - chdir "C:\projects\mesa"
   - rem Install pip
   - python --version
   - python -m ensurepip
@@ -24,5 +24,5 @@ init:
   - set LLVM=%CD%\llvm
   - rem python scons-local\scons.py --version
   - rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
-  - chdir "C:\projects\mesa"
   - scons MSVC_VERSION=12.0 llvm=1
+  - chdir "C:\projects\fractalalgorithmsandbox"
