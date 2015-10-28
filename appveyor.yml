@@ -4,7 +4,7 @@ version: 1.0.{build}
 
 os: Visual Studio 2014 CTP4
 
-configuration: Release|Debug
+configuration: Release
 
 platform: Any CPU
 
@@ -35,7 +35,7 @@ init:
    # Download LibXml2
    - python -m pip install lxml
    # Download SCons
-   - pip install --egg SCons
+   - python -m pip install --egg SCons
    - appveyor DownloadFile "http://heanet.dl.sourceforge.net/project/mingw/Installer/mingw-get-setup.exe"
    - rename mingw-get-setup.exe mingw.exe
    - mingw.exe
