@@ -1,27 +1,27 @@
 
 init:
- -  git clone -q --depth=5 --branch=master http://anongit.freedesktop.org/git/mesa/mesa.git C:\projects\mesa
- -  rem Install pip
- -  python --version
- -  python -m ensurepip
- -  rem Install Mako
- -  python -m pip --egg Mako
- -  rem Install SCons
- -  rem XXX: "python -m pip install --egg scons" is too old (2.3.3)
- -  rem appveyor DownloadFile http://prdownloads.sourceforge.net/scons/scons-local-2.3.4.zip
- -  rem 7z x -oscons-local/ scons-local-2.3.4.zip > nul:
- -  rem python scons-local/scons.py --version
- -  python -m pip install --egg http://prdownloads.sourceforge.net/scons/scons-2.3.4.tar.gz
- -  scons --version
- -  rem Install flex/bison
- -  cinst winflexbison -y
- -  echo Path=%Path%
- -  rem win_flex --version
- -  rem win_bison --version
- -  appveyor DownloadFile http://people.freedesktop.org/~jrfonseca/llvm/llvm-3.3.1-msvc2013-mtd.7z
- -  7z x llvm-3.3.1-msvc2013-mtd.7z > nul:
- -  mkdir llvm\bin
- -  set LLVM=%CD%\llvm
- -  rem python scons-local\scons.py --version
- -  rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
- -  scons MSVC_VERSION=12.0 llvm=1
+ - cmd: git clone -q --depth=5 --branch=master http://anongit.freedesktop.org/git/mesa/mesa.git C:\projects\mesa
+ - cmd: rem Install pip
+ - cmd: python --version
+ - cmd: python -m ensurepip
+ - cmd: rem Install Mako
+ - cmd: python -m pip --egg Mako
+ - cmd: rem Install SCons
+ - cmd: rem XXX: "python -m pip install --egg scons" is too old (2.3.3)
+ - cmd: rem appveyor DownloadFile http://prdownloads.sourceforge.net/scons/scons-local-2.3.4.zip
+ - cmd: rem 7z x -oscons-local/ scons-local-2.3.4.zip > nul:
+ - cmd: rem python scons-local/scons.py --version
+ - cmd: python -m pip install --egg http://prdownloads.sourceforge.net/scons/scons-2.3.4.tar.gz
+ - cmd: scons --version
+ - cmd: rem Install flex/bison
+ - cmd: cinst winflexbison -y
+ - cmd: echo Path=%Path%
+ - cmd: rem win_flex --version
+ - cmd: rem win_bison --version
+ - cmd: appveyor DownloadFile http://people.freedesktop.org/~jrfonseca/llvm/llvm-3.3.1-msvc2013-mtd.7z
+ - cmd: 7z x llvm-3.3.1-msvc2013-mtd.7z > nul:
+ - cmd: mkdir llvm\bin
+ - cmd: set LLVM=%CD%\llvm
+ - cmd: rem python scons-local\scons.py --version
+ - cmd: rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
+ - cmd: scons MSVC_VERSION=12.0 llvm=1
