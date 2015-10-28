@@ -50,6 +50,7 @@ init:
    - cmake/cmake.exe .. -G "Visual Studio 12 2013" "-DLLVM_USE_CRT_RELEASE:STRING=MT" "-DCMAKE_INSTALL_PREFIX:PATH=C:/projects/install/LLVM"
    - devenv.exe "LLVM.sln" "/Build" "Release" "/Project" "INSTALL"
    - python scons.py "build=release" "machine=x86" "MSVC_VERSION=12.0" "llvm=yes" "libgl-gdi"
+   #- msbuild "LLVM.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
    
 before_build:
    - copy "C:\projects\installer\opengl32.dll" "C:\projects\fractalalgorithmsandbox\dependencies\opengl32.dll"
