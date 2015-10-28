@@ -36,10 +36,11 @@ init:
    - python -m pip install lxml
    # Download SCons
    - python -m pip install --egg SCons
+   - mkdir "C:\MinGW"
+   - chdir "C:\MinGW"
    - appveyor DownloadFile "http://heanet.dl.sourceforge.net/project/mingw/Installer/mingw-get-setup.exe"
-   - rename mingw-get-setup.exe mingw.exe
-   - mingw.exe
-   - call "C:/MinGW/bin/mingw-get.exe install msys-flex msys-bison msys-wget"
+   - mingw-get-setup.exe
+   - "C:/MinGW/bin/mingw-get.exe" "install" "msys-flex" "msys-bison" "msys-wget"
    - appveyor DownloadFile "ftp://ftp.freedesktop.org/pub/mesa/10.6.0/mesa-10.6.0.tar.xz"
    - 7z x mesa-10.6.0.tar.xz > NUL:
    - 7z x mesa-10.6.0.tar > NUL:
