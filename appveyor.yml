@@ -24,4 +24,5 @@ init:
   - set LLVM=%CD%\llvm
   - rem python scons-local\scons.py --version
   - rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
+  - chdir "C:\projects\mesa"
   - scons MSVC_VERSION=12.0 llvm=1
