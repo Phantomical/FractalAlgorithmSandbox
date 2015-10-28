@@ -14,34 +14,10 @@ shallow_clone: true
 init:
 
 - cmd: >-
-
-   - git clone -q --depth=5 --branch=master http://anongit.freedesktop.org/git/mesa/mesa.git C:\projects\mesa
-   - chdir "C:\projects\mesa"
-   - rem Install pip
    - python --version
-   - python -m ensurepip
-   - rem Install Mako
-   - python -m pip install --egg Mako
-   - rem Install SCons
-   - rem appveyor DownloadFile http://prdownloads.sourceforge.net/scons/scons-local-2.3.4.zip
-   - rem 7z x -oscons-local/ scons-local-2.3.4.zip > nul:
-   - rem python scons-local/scons.py --version
-   - python -m pip install --egg http://prdownloads.sourceforge.net/scons/scons-2.3.4.tar.gz
-   - scons --version
-   - rem Install flex/bison
-   - cinst winflexbison -y
-   - echo Path=%Path%
-   - rem win_flex --version
-   - rem win_bison --version
-   - appveyor DownloadFile llvm.org/releases/3.7.0/llvm-3.7.0.src.tar.xz
-   - 7z x llvm-3.7.0.src.tar.xz
-   - 7z x llvm-3.7.0.src.tar
-   - Rename llvm-3.7.0.src llvm
-   - mkdir llvm\bin
-   - set LLVM=%CD%\llvm
-   - rem python scons-local\scons.py --version
-   - rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
-   - scons MSVC_VERSION=12.0 llvm=1
+   - git clone -q --depth=5 --branch=master https://github.com/florianlink/MesaOnWindows.git C:\projects\installer
+   - chdir "C:\projects\installer"
+   - python buildMesa.py
 
 build:
   project: FractalAlgorithmTest.sln
