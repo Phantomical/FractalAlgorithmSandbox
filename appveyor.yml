@@ -6,7 +6,7 @@ init:
   - python --version
   - python -m ensurepip
   - rem Install Mako
-  - python -m pip --egg Mako
+  - python -m pip install --egg Mako
   - rem Install SCons
   - rem appveyor DownloadFile http://prdownloads.sourceforge.net/scons/scons-local-2.3.4.zip
   - rem 7z x -oscons-local/ scons-local-2.3.4.zip > nul:
