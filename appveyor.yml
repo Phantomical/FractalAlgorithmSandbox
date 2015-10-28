@@ -19,7 +19,7 @@ init:
   - rem win_flex --version
   - rem win_bison --version
   - appveyor DownloadFile http://people.freedesktop.org/~jrfonseca/llvm/llvm-3.3.1-msvc2013-mtd.7z
-  - 7z x llvm-3.3.1-msvc2013-mtd.7z > nul:
+  - rem 7z x llvm-3.3.1-msvc2013-mtd.7z
   - mkdir llvm\bin
   - set LLVM=%CD%\llvm
   - rem python scons-local\scons.py --version
