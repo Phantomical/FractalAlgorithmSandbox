@@ -25,8 +25,8 @@ init:
    - 7z x cmake.zip > NUL:
    # Download LLVM
    - appveyor DownloadFile http://llvm.org/releases/3.6.1/llvm-3.6.1.src.tar.xz
-   - 7z x llvm-3.6.1.src.tar.xz > NUL:
-   - 7z x llvm-3.6.1.src.tar > NUL:
+   - 7z x llvm-3.6.1.src.tar.xz
+   - 7z x llvm-3.6.1.src.tar > nul
    - dir /d
    - python -m ensurepip
    # Download and install Mako
@@ -41,8 +41,9 @@ init:
    - cinst winflexbison -y
    #  Download and install MESA
    - appveyor DownloadFile "ftp://ftp.freedesktop.org/pub/mesa/10.6.0/mesa-10.6.0.tar.xz"
-   - 7z x mesa-10.6.0.tar.xz > NUL:
-   - 7z x mesa-10.6.0.tar > NUL:
+   - 7z x mesa-10.6.0.tar.xz
+   - 7z x mesa-10.6.0.tar > nul
+   - mkdir LLVM
    - cd LLVM
    - mkdir buildDir
    - chdir "C:\projects\install\LLVM"
