@@ -33,7 +33,6 @@ init:
     echo Path=%Path%
     rem win_flex --version
     rem win_bison --version
-    #appveyor DownloadFile http://people.freedesktop.org/~jrfonseca/llvm/llvm-3.3.1-msvc2013-mtd.7z
     appveyor DownloadFile llvm.org/releases/3.7.0/llvm-3.7.0.src.tar.xz
     7z x llvm-3.7.0.src.tar.xz
     7z x llvm-3.7.0.src.tar
