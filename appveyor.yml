@@ -18,6 +18,7 @@ init:
    - rem Install pip
    - mkdir "c:\projects\install"
    - chdir "c:\projects\install"
+   # Install the build script
    - git clone https://gist.github.com/b80d5787925dc2b0231c.git "c:\projects\install\buildMesa"
    - python "c:\projects\install\buildMesa\buildMesa.py"
    
