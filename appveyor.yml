@@ -21,8 +21,7 @@ init:
    - mkdir build
    # Download CMake
    - appveyor DownloadFile http://www.cmake.org/files/v3.2/cmake-3.2.3-win32-x86.zip
-   - rename cmake-3.2.3-win32-x86.zip cmake.zip
-   - 7z x cmake.zip > nul
+   - 7z x cmake-3.2.3-win32-x86.zip > nul
    # Download LLVM
    - appveyor DownloadFile http://llvm.org/releases/3.6.1/llvm-3.6.1.src.tar.xz
    - 7z x llvm-3.6.1.src.tar.xz > nul
@@ -44,12 +43,9 @@ init:
    - appveyor DownloadFile "ftp://ftp.freedesktop.org/pub/mesa/10.6.0/mesa-10.6.0.tar.xz"
    - 7z x mesa-10.6.0.tar.xz > nul
    - 7z x mesa-10.6.0.tar > nul
-   - cd LLVM
    - chdir "C:\projects\install\LLVM"
    - cmake/cmake.exe "C:\projects\install\LLVM" -G "Visual Studio 12 2013" "-DLLVM_USE_CRT_RELEASE:STRING=MT" "-DCMAKE_INSTALL_PREFIX:PATH=C:/projects/install/LLVM"
-   - devenv.exe "LLVM.sln" "/Build" "Release" "/Project" "INSTALL"
    - python scons.py "build=release" "machine=x86" "MSVC_VERSION=12.0" "llvm=yes" "libgl-gdi"
-   # - msbuild "LLVM.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
    
 before_build:
    - copy "C:\projects\installer\opengl32.dll" "C:\projects\fractalalgorithmsandbox\dependencies\opengl32.dll"
