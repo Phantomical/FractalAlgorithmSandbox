@@ -44,9 +44,7 @@ init:
    - appveyor DownloadFile "ftp://ftp.freedesktop.org/pub/mesa/10.6.0/mesa-10.6.0.tar.xz"
    - 7z x mesa-10.6.0.tar.xz > nul
    - 7z x mesa-10.6.0.tar > nul
-   - mkdir LLVM
    - cd LLVM
-   - mkdir buildDir
    - chdir "C:\projects\install\LLVM"
    - cmake/cmake.exe "C:\projects\install\LLVM" -G "Visual Studio 12 2013" "-DLLVM_USE_CRT_RELEASE:STRING=MT" "-DCMAKE_INSTALL_PREFIX:PATH=C:/projects/install/LLVM"
    - devenv.exe "LLVM.sln" "/Build" "Release" "/Project" "INSTALL"
