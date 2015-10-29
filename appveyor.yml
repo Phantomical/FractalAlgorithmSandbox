@@ -18,8 +18,8 @@ init:
    - rem Install pip
    - mkdir "c:\projects\install"
    - chdir "c:\projects\install"
-   - git clone https://gist.github.com/b80d5787925dc2b0231c.git
-   - python buildMesa.py
+   - git clone https://gist.github.com/b80d5787925dc2b0231c.git "c:\projects\install\buildMesa"
+   - python "c:\projects\install\buildMesa\buildMesa.py"
    
 before_build:
    - copy "C:\projects\installer\opengl32.dll" "C:\projects\fractalalgorithmsandbox\dependencies\opengl32.dll"
