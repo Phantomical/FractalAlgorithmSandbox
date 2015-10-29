@@ -45,6 +45,7 @@ init:
    - 7z x mesa-10.6.0.tar > nul
    - chdir "C:\projects\install\LLVM"
    - cmake/cmake.exe "C:\projects\install\LLVM" -G "Visual Studio 12 2013" "-DLLVM_USE_CRT_RELEASE:STRING=MT" "-DCMAKE_INSTALL_PREFIX:PATH=C:/projects/install/LLVM"
+   - chdir "C:\projects\install"
    - rem python scons-local\scons.py --version
    - rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
    - scons MSVC_VERSION=12.0 llvm=1
