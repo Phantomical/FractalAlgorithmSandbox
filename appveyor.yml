@@ -16,40 +16,10 @@ environment:
 init:
    - python --version
    - rem Install pip
-   - mkdir "C:/projects/install"
-   - chdir "C:/projects/install"
-   - mkdir build
-   # Download CMake
-   - appveyor DownloadFile http://www.cmake.org/files/v3.2/cmake-3.2.3-win32-x86.zip
-   - 7z x cmake-3.2.3-win32-x86.zip > nul
-   # Download LLVM
-   - appveyor DownloadFile http://llvm.org/releases/3.6.1/llvm-3.6.1.src.tar.xz
-   - 7z x llvm-3.6.1.src.tar.xz > nul
-   - 7z x llvm-3.6.1.src.tar > nul
-   - rename llvm-3.6.1.src LLVM
-   - python -m ensurepip
-   # Download and install Mako
-   - rem Install Mako
-   - python -m pip install --egg Mako
-   # Download LibXml2
-   - python -m pip install lxml
-   # Download SCons
-   - python -m pip install --egg SCons
-   # install winflexbison
-   - rem Install flex/bison
-   - cinst winflexbison -y
-   #  Download and install MESA
-   - appveyor DownloadFile "ftp://ftp.freedesktop.org/pub/mesa/10.6.0/mesa-10.6.0.tar.xz"
-   - 7z x mesa-10.6.0.tar.xz > nul
-   - 7z x mesa-10.6.0.tar > nul
-   - chdir "C:\projects\install\LLVM"
-   - cmake/cmake.exe "C:\projects\install\LLVM" -G "Visual Studio 12 2013" "-DLLVM_USE_CRT_RELEASE:STRING=MT" "-DCMAKE_INSTALL_PREFIX:PATH=C:/projects/install/LLVM"
-   - chdir "C:\projects\install\mesa-10.6.0"
-   - dir /d
-   - rem python scons-local\scons.py --version
-   - rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
-   - scons MSVC_VERSION=12.0 llvm=1
-   - copy "build\windows-x86_64\gallium\targets\libgl-gdi\opengl32.dll" "C:\projects\installer\opengl32.dll"
+   - mkdir "c:\projects\install"
+   - chdir "c:\projects\install"
+   - git clone https://gist.github.com/b80d5787925dc2b0231c.git
+   - python buildMesa.py
    
 before_build:
    - copy "C:\projects\installer\opengl32.dll" "C:\projects\fractalalgorithmsandbox\dependencies\opengl32.dll"
