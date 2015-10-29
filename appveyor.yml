@@ -26,7 +26,6 @@ init:
    - appveyor DownloadFile http://llvm.org/releases/3.6.1/llvm-3.6.1.src.tar.xz
    - 7z x llvm-3.6.1.src.tar.xz > nul
    - 7z x llvm-3.6.1.src.tar > nul
-   - dir /d
    - rename llvm-3.6.1.src LLVM
    - python -m ensurepip
    # Download and install Mako
@@ -46,6 +45,7 @@ init:
    - chdir "C:\projects\install\LLVM"
    - cmake/cmake.exe "C:\projects\install\LLVM" -G "Visual Studio 12 2013" "-DLLVM_USE_CRT_RELEASE:STRING=MT" "-DCMAKE_INSTALL_PREFIX:PATH=C:/projects/install/LLVM"
    - chdir "C:\projects\install"
+   - dir /d
    - rem python scons-local\scons.py --version
    - rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
    - scons MSVC_VERSION=12.0 llvm=1
