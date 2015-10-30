@@ -12,6 +12,7 @@ environment:
   LLVM: "C:/projects/install/LLVM"
 
 init:
+  - mkdir "c:\projects\mesa"
   - chdir "c:\projects\mesa"
   - git clone -q --depth=5 --branch=master http://anongit.freedesktop.org/git/mesa/mesa.git C:\projects\mesa
   - Running Install scripts
