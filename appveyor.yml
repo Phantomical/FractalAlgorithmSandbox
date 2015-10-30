@@ -39,6 +39,7 @@ init:
   - rem python scons-local\scons.py --version
   - rem python scons-local\scons.py MSVC_VERSION=12.0 llvm=1
   - scons MSVC_VERSION=12.0 llvm=1
+  - dir /d
    
 before_build:
    #- copy "C:\projects\installer\opengl32.dll" "C:\projects\fractalalgorithmsandbox\dependencies\opengl32.dll"
