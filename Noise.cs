@@ -3,7 +3,7 @@ using System;
 
 namespace FractalAlgorithmTest
 {
-	[Obsolete("This is just a storage class for various interpolators. They will probably be moved in the future.")]
+	[Obsolete("This is just a storage class for various interpolators. They will probably be moved in the future.", true)]
 	internal class Interpolators
 	{
 		/// <summary>
@@ -54,8 +54,6 @@ namespace FractalAlgorithmTest
 
 			return a0 * v1 + a1 * m0 + a2 * m1 + a3 * v2;
 		}
-
-
 	}
 
 	namespace Noise
