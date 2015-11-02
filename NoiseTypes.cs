@@ -5,7 +5,7 @@ namespace FractalAlgorithmTest
 	///If an equivalent option is added to <see cref="Window.GetNoiseType"/>
 	///it can automatically be selected from the command line.
 	///The function that the type corresponds to must be named Get[TypeName]Module(int seed)
-	enum NoiseType
+	public enum NoiseType
 	{
 		Mountain,
 		RidgesAndValleys,
