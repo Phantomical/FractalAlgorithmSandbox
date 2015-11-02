@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace FractalAlgorithmTest
 {
-	class Window : GameWindow
+	public class Window : GameWindow
 	{
 		private static INoiseModule GetNoiseType(NoiseType Type, int seed)
 		{
