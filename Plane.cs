@@ -1,4 +1,5 @@
-﻿using OpenTK;
+﻿using System.Threading.Tasks;
+using OpenTK;
 
 namespace FractalAlgorithmTest
 {
@@ -26,13 +27,13 @@ namespace FractalAlgorithmTest
 			//Create and displace vertices
 			//Vertices are dispalced along the Y axis
 			//Doing this in 3d wold normally be more complicated but with a plane it is simple
-			for(int x = 0; x < VertsPerSide; x++)
+			Parallel.For(0, VertsPerSide, x =>
 			{
-				for(int z = 0; z < VertsPerSide; z++)
+				for (int z = 0; z < VertsPerSide; z++)
 				{
 					Vertices[x * VertsPerSide + z] = new Vector3(Interp * x - hWidth, NoiseFunction(Interp * x - hWidth, 0, Interp * z - hWidth), Interp * z - hWidth);
 				}
-			}
+			});
 
 			int idx = 0;
 

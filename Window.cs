@@ -108,6 +108,7 @@ namespace FractalAlgorithmTest
 			{
 				//Amount that the camera can move per update
 				const float displacement = 0.02f;
+				const float rotation = 0.02f;
 				var Keyboard = OpenTK.Input.Keyboard.GetState();
 
 				Matrix4 rot = Matrix4.CreateFromQuaternion(CamRot);
@@ -135,17 +136,17 @@ namespace FractalAlgorithmTest
 
 				//Rotate camera
 				if (Keyboard[OpenTK.Input.Key.I])
-					NewCamRot.X -= 0.1f;
+					NewCamRot.X -= rotation;
 				if (Keyboard[OpenTK.Input.Key.K])
-					NewCamRot.X += 0.1f;
+					NewCamRot.X += rotation;
 				if (Keyboard[OpenTK.Input.Key.J])
-					NewCamRot.Y -= 0.1f;
+					NewCamRot.Y -= rotation;
 				if (Keyboard[OpenTK.Input.Key.L])
-					NewCamRot.Y += 0.1f;
+					NewCamRot.Y += rotation;
 				if (Keyboard[OpenTK.Input.Key.U])
-					NewCamRot.Z -= 0.1f;
+					NewCamRot.Z -= rotation;
 				if (Keyboard[OpenTK.Input.Key.O])
-					NewCamRot.Z += 0.1f;
+					NewCamRot.Z += rotation;
 
 				//Reset camera position and rotation
 				if (Keyboard[OpenTK.Input.Key.Space])
